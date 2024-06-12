@@ -33,13 +33,14 @@ int main()
     bn::regular_bg_map_cell valid_map_cell = map_item.cell(0, 0);
     int valid_tile_index = bn::regular_bg_map_cell_info(valid_map_cell).tile_index();
     bn::point dog_map_position(16, 16);
-
     while(true)
     {
         bn::point new_dog_map_position = dog_map_position;
 
-        if(bn::keypad::left_pressed())
-        {
+
+        if(bn::keypad::left_held())
+        {   
+            text_generator.set_center_alignment();
             new_dog_map_position.set_x(new_dog_map_position.x() - 1);
             dog_sprite.set_horizontal_flip(true);
         }
